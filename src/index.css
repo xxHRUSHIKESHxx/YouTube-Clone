@@ -26,7 +26,9 @@ a {
 }
 
 .category-btn:hover {
-  background-color: #FC1503 !important;
+  
+  background: rgb(246,3,252);
+  background: linear-gradient(90deg, rgba(246,3,252,1) 0%, rgba(0,0,247,1) 100%);
   color: white !important;
 }
 

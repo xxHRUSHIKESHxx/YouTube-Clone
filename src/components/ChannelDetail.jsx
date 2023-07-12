@@ -11,11 +11,11 @@ const [videos, setVideos] = useState([]);
 
   const { id } = useParams();
 
-  console.log(channelDetail , videos);
+
 
 
  useEffect(() => {
-  fetchFromAPI(`channel?part=snippet&id={id}`)
+  fetchFromAPI(`channel?part=snippet&id=${id}`)
    .then((data) => setChannelDetail(data?.items[0]));
 
 
@@ -31,13 +31,12 @@ const [videos, setVideos] = useState([]);
    <Box minHeight="95vh">
      <Box>
      <div style ={{
-      background:'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(16,4,249,1) 100%, rgba(0,212,255,1) 100%)',
+      background:' linear-gradient(90deg, rgba(235,3,252,1) 0%, rgba(89,0,247,1) 100%)',
       zIndex:10,
       height:'300px'
      
      }} />
-     <ChannelCard channelDetail={ChannelDetail}
-     marginTop ='-110px' />
+     <ChannelCard channelDetail={channelDetail} marginTop ='-110px' />
      </Box>
     <Box display="flex" p="2">
        <Box sx={{mr:{sm:'100px'}}}/>

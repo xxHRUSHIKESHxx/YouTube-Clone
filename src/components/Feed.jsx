@@ -38,7 +38,7 @@ const Feed = () => {
           variant="body2"
           sx={{ mt: 1.5, color: "#fff" }}
         >
-          copyright 2022 jsm media
+          CopyRight 2023 xxHRUSHIKESHxx
         </Typography>
       </Box>
 
@@ -48,10 +48,10 @@ const Feed = () => {
           fontWeight="bold"
           mb={2}
           sx={{
-            color: "white",
+            color: "#fff",
           }}
         >
-          {selectedcategory} <span style={{ color: "#F31503" }}>videos</span>
+          {selectedcategory} <span style={{ color: "#a503fc" }}>videos</span>
         </Typography>
         <Videos videos={videos} />
       </Box>

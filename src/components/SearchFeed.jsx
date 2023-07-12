@@ -15,7 +15,7 @@ const SearchFeed = () => {
 
  useEffect(()=>{
 
-  fetchFromAPI(`search?part=snippet&q={searchTerm}`) 
+  fetchFromAPI(`search?part=snippet&q=${searchTerm}`) 
   .then((data) => {setVideos(data.items)})
   .catch((error) => {
     console.log(error)
@@ -32,7 +32,7 @@ const SearchFeed = () => {
         color: "white",
       }}
     >
-     Search Results for: <span style={{ color: "#F31503" }}>{searchTerm}</span> videos
+     Search Results For: <span style={{ color: "#a503fc" }}>{searchTerm}</span> videos
     </Typography>
     <Videos videos={videos} />
   </Box>
