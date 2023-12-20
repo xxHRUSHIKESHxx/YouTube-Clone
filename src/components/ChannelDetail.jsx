@@ -1,50 +1,51 @@
-import {useState, useEffect } from 'react';
-import{useParams} from 'react-router-dom';
-import {Box} from '@mui/material';
-import {Videos ,  ChannelCard } from './';
-import { fetchFromAPI } from '../utils/fetchFromAPI';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Box } from "@mui/material";
+import { Videos, ChannelCard } from "./";
+import { fetchFromAPI } from "../utils/fetchFromAPI";
 
 const ChannelDetail = () => {
-
-const [channelDetail , setChannelDetail] = useState(null);
-const [videos, setVideos] = useState([]);
+  const [channelDetails, setChannelDetails] = useState(null);
+  const [videos, setVideos] = useState([]);
 
   const { id } = useParams();
+  console.log("id", id);
 
+  console.log("from channel details", channelDetails);
+  useEffect(() => {
+    // fetchFromAPI(`channels?part=snippet&channelId=${id}`).then((data) => {
+    fetchFromAPI(`channels?part=snippet&id=${id}`).then((data) => {
+      setChannelDetails(data?.items[0]);
+      console.log("data from channelDetails", data); // Move console.log here
+    });
 
-
-
- useEffect(() => {
-  fetchFromAPI(`channel?part=snippet&id=${id}`)
-   .then((data) => setChannelDetail(data?.items[0]));
-
-
-   fetchFromAPI(`search?channelId=${id}&part=snippet&order=date`)
-   .then((data) => setVideos(data?.items));
-  
-}, [id])
-
-
-
+    fetchFromAPI(`search?channelId=${id}&part=snippet&order=date`).then(
+      (data) => {
+        setVideos(data?.items);
+        console.log("vedios from channel details",data);
+      }
+    );
+  }, [id]);
 
   return (
-   <Box minHeight="95vh">
-     <Box>
-     <div style ={{
-      background:' linear-gradient(90deg, rgba(235,3,252,1) 0%, rgba(89,0,247,1) 100%)',
-      zIndex:10,
-      height:'300px'
-     
-     }} />
-     <ChannelCard channelDetail={channelDetail} marginTop ='-110px' />
-     </Box>
-    <Box display="flex" p="2">
-       <Box sx={{mr:{sm:'100px'}}}/>
-          <Videos videos={videos}/>
-       
-    </Box>
-   </Box>
-  )
-}
+    <Box minHeight="95vh">
+      <Box>
+        <div
+          style={{
+          background:"linear-gradient(90deg, rgba(8,3,92,1) 5%, rgba(79,3,71,1) 100%)",
+            zIndex: 10,
+            height: "300px",
+          }}
+        />
+        <ChannelCard channelDetail={channelDetails} marginTop="-110px" />
+      </Box>
 
-export default ChannelDetail
+      <Box display="flex" p="2">
+        <Box sx={{ mr: { sm: "100px" } }} />
+        <Videos videos={videos} />
+      </Box>
+    </Box>
+  );
+};
+
+export default ChannelDetail;

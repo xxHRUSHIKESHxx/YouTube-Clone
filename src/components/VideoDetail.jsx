@@ -24,17 +24,21 @@ const VideoDetail = () => {
  const { snippet: {title, channelId , channelTitle} , statistics:{viewCount,likeCount} } = videoDetail;
 
   return (
-    <Box minHeight = "95vh">
+    // <Box minHeight = "95vh">
+    <Box>  
       <Stack direction ={{xs : 'column' , md: 'row'}}>
         <Box flex={1} >  
-          <Box sx={{width: '100%', position:'sticky', top:'76px'}}>
+          {/* <Box sx={{width: '100%', position:'sticky', top:'76px'}}> */}
+          <Box sx={{width: '100%', position:'sticky', top:'76px'}} xs={{height:'85%'}}>
             <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`}
             className = "react-player" controls />
             <Typography color="#fff" variant="h5" fontweight="bold" p={2} >
               {title}
             </Typography>
-            <Stack direction="row" justifyContent ="space-between" sx={{color:'#fff'}} py={1} px={2} >
-              <Link to={`./channel/${channelId}`}>
+            {/* <Stack direction="row" justifyContent ="space-between" sx={{color:'#fff'}} py={1} px={2} > */}
+            <Stack direction="row" justifyContent ="space-between" sx={{color:'#fff'}} py={1} px={2} mb={2} >
+              {/* <Link to={`./channel/${channelId}`}> */}
+              <Link to={`/channel/${channelId}`}>
                 <Typography variant={{sm:'subtitle1', md:'h6'}} color="#fff">
                   {channelTitle}
                   <CheckCircle sx={{fontSize:'12px', color:'green',ml:'5px'}}/>
