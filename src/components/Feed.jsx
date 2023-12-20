@@ -38,7 +38,7 @@ const Feed = () => {
           variant="body2"
           sx={{ mt: 1.5, color: "#fff" }}
         >
-          CopyRight 2023 xxHRUSHIKESHxx
+         -- CopyRight BSH Group --
         </Typography>
       </Box>
 
